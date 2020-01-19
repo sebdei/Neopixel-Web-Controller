@@ -13,5 +13,5 @@ Built with [Adafruit CircuitPython Neopixel](https://github.com/adafruit/Adafrui
 Calculation of HSL to RGB+W values are done on clientside due to the limited computing capacity of the PI. Special thanks to [SaikoLED](https://blog.saikoled.com/post/44677718712/how-to-convert-from-hsi-to-rgb-white)
 
 
-![](https://raw.githubusercontent.com/sebdei/Neopixel-Web-Controller/master/screenshot.png)
+![](https://raw.githubusercontent.com/sebdei/Neopixel-Web-Controller/master/screenshot.png | width=50)
 
