@@ -1,4 +1,4 @@
-import hsi2rgbw from './hsi2rgbw.js'
+import hsl2rgbw from './hsl2rgbw.js'
 
 
 window.onload = function () {
@@ -31,7 +31,7 @@ function setupColorWheel() {
 
   const onColorChanged = function (color) {
     const hsl = color.hsl
-    const rgbw = hsi2rgbw(hsl.h, hsl.s, hsl.l)
+    const rgbw = hsl2rgbw(hsl.h, hsl.s, hsl.l)
 
     setColor(rgbw)
   }
