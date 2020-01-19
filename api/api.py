@@ -3,7 +3,9 @@ from flask_cors import CORS
 
 import led.neopixel_service as neopixel_service
 
-app = Flask(__name__, static_folder="static", template_folder = "static")
+
+app = Flask(__name__, static_folder="static", template_folder="static")
+
 
 def bind_routes(app):
     @app.route('/')

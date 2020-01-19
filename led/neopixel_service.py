@@ -7,5 +7,6 @@ def set_color(rgbw_dict):
 
     neopixel_ring.set_color(rgbw_tuple_rounded)
 
+
 def set_brightness(brightness):
     neopixel_ring.set_brightness(brightness)
