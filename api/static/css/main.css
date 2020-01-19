@@ -1,0 +1,19 @@
+body {
+  font-family: "Helvetica Neue";
+  color: #333
+}
+
+.header {
+  border-bottom: 1px solid #333;
+  text-align: center;
+  padding-top: 8px;
+  height: 40px;
+}
+
+.label {
+  text-align: center;
+}
+
+.brightness-slider {
+  cursor: pointer;
+}

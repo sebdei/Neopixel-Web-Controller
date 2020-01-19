@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Neopixel controler</title>
+  
+  <link rel="shortcut icon" href="static/favicon.ico">
+  <link rel="icon" type="image/png" href="static/favicon.png" sizes="24x24">
+  <link rel="stylesheet" type="text/css" href="static/css/main.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+    <div class="header mb-5">
+      <h4>
+        LED-Controler
+      </h4>
+    </div>
+
+    <div class="mb-4">
+      <div class="label mb-3">Wähle eine Farbe</div>
+      <div class="color-picker d-flex justify-content-center"></div>
+    </div>
+
+    <div>
+      <div class="label mb-3">Regele die Helligkeit</div>
+      <div class="d-flex justify-content-center">
+        <input type="range" min="0" max="100" value="30" class="brightness-slider" id="range-slider">
+      </div>
+    </div>
+  </div>
+
+  <script src="static/js/lib/iro.min.js"></script>
+  <script type="module" src="static/js/index.js"> </script>
+</body>
+
+</html>
