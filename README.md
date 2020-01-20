@@ -3,7 +3,7 @@ Neopixel-Controller
 
 Simple web-based controller for [Adafruit's neopixel](https://www.adafruit.com/category/168) made for raspberry pis or similar SOCs.
 
-Built with [Adafruit CircuitPython Neopixel](https://github.com/adafruit/Adafruit_CircuitPython_NeoPixel), [flask](https://github.com/pallets/flask) and [iro](iro.js.org/).
+Built with [Adafruit CircuitPython Neopixel](https://github.com/adafruit/Adafruit_CircuitPython_NeoPixel), [flask](https://github.com/pallets/flask) and [iro](https://iro.js.org/).
 
 
 
