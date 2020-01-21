@@ -9,7 +9,7 @@ window.onload = function () {
 function setupBrightnessSlider() {
   const slider = document.getElementById("range-slider");
 
-  slider.addEventListener('input', function (event) {
+  slider.addEventListener('input', (event) => {
     const effectiveBrightness = event.target.value / 100
     setBrightness(effectiveBrightness)
   })
@@ -28,7 +28,7 @@ function setupColorWheel() {
     ]
   });
 
-  colorPicker.on(["color:change"], () => {
+  colorPicker.on(["color:change"], (color) => {
     const hsl = color.hsl
     const rgbw = hsl2rgbw(hsl.h, hsl.s, hsl.l)
   
