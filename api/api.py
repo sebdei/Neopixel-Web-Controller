@@ -16,7 +16,7 @@ def bind_routes(app):
     def set_brightness():
         brightness = request.get_json()
         neopixel_service.set_brightness(brightness)
-        
+
         resp = make_response()
         resp.status_code = 200
         return resp
@@ -25,7 +25,7 @@ def bind_routes(app):
     def set_color():
         rgbw_dict = request.get_json()
         neopixel_service.set_color(rgbw_dict)
-        
+
         resp = make_response()
         resp.status_code = 200
         return resp

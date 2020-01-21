@@ -28,15 +28,12 @@ function setupColorWheel() {
     ]
   });
 
-
-  const onColorChanged = function (color) {
+  colorPicker.on(["color:change"], () => {
     const hsl = color.hsl
     const rgbw = hsl2rgbw(hsl.h, hsl.s, hsl.l)
-
+  
     setColor(rgbw)
-  }
-
-  colorPicker.on(["color:change"], onColorChanged)
+  })
 }
 
 function setBrightness(brightness) {
@@ -44,7 +41,7 @@ function setBrightness(brightness) {
 }
 
 function setColor(rgbw) {
-  post('/set_color', rgbw)
+  post('/set_color_rgbw', rgbw)
 }
 
 function post(path, data) {
