@@ -1,4 +1,4 @@
-export default function hsi2rgbw(hue, saturation_percentage, lightness_percentage) {
+export default function hsl2rgbw(hue, saturation_percentage, lightness_percentage) {
   const hueRadian = Math.PI * hue / 180
 
   const saturation = saturation_percentage / 100
