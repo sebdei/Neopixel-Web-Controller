@@ -23,6 +23,3 @@ class NeopixelAccess:
 
     def show(self):
         self.pixels.show()
-
-
-neopixel_ring = NeopixelAccess(GPIO_PIN, NUMBER_OF_PIXEL, ORDER)
