@@ -4,6 +4,16 @@ import hsl2rgbw from './hsl2rgbw.js'
 window.onload = function () {
   setupBrightnessSlider()
   setupColorWheel()
+
+  getCurrentLEDState()
+}
+
+function getCurrentLEDState() {
+  const brightness = get('/get_brightness')
+  const color = get('/get_color')
+
+  console.log(brightness);
+  console.log(color)
 }
 
 function setupBrightnessSlider() {
@@ -54,5 +64,14 @@ function post(path, data) {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(data)
+  })
+}
+
+function get(path) {
+  const effectivePath = "http://192.168.0.32:5000" + path
+  fetch(effectivePath, {
+    method: 'GET',
+    mode: 'cors',
+    cache: 'no-cache',
   })
 }
