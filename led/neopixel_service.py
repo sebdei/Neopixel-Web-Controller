@@ -15,7 +15,7 @@ def set_brightness(brightness: float):
     neopixel_ring.get_neo_pixel_list().brigthness = brightness
     neopixel_ring.get_neo_pixel_list().show()
 
-    neopixel_ring.setBrightness(brightness)
+    neopixel_ring.set_brightness(brightness)
 
 
 def set_color_rgbw(rgbw: Tuple):
