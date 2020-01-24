@@ -1,25 +1,29 @@
+from typing import Tuple
+
 import neopixel
 
 INIT_BRIGHTNESS = 0.05
 
 
 class NeopixelAccess:
+    brightness = INIT_BRIGHTNESS
+    hsl = None
+    neo_pixels = None
+
     def __init__(self, gpio_pin=18, number_of_pixels=16, order=None):
-        self.pixels = neopixel.NeoPixel(pin=gpio_pin, n=number_of_pixels, brightness=INIT_BRIGHTNESS, auto_write=False, pixel_order=order)
+        self.neo_pixels = neopixel.NeoPixel(pin=gpio_pin, n=number_of_pixels, brightness=INIT_BRIGHTNESS, auto_write=False, pixel_order=order)
 
     def get_brightness(self):
-        return self.pixels.brightness
+        return self.brightness
 
-    def get_color(self):
-        return self.pixels[0]
+    def get_hsl(self):
+        return self.hsl
 
-    def set_brightness(self, brightness):
-        self.pixels.brightness = brightness
-        self.show()
+    def get_neo_pixel_list(self):
+        return self.neo_pixels
 
-    def set_color(self, rgbw):
-        self.pixels.fill(rgbw)
-        self.show()
+    def set_brightness(self, brightness: float):
+        self.brightness = brightness
 
-    def show(self):
-        self.pixels.show()
+    def set_hsl(self, hsl: Tuple):
+        self.hsl = hsl

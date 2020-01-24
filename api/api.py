@@ -31,9 +31,9 @@ def bind_routes(app):
         return resp
 
     @app.route('/set_color_rgbw', methods=['POST'])
-    def set_color():
+    def set_color_rgbw():
         rgbw_dict = request.get_json()
-        neopixel_service.set_color(rgbw_dict)
+        neopixel_service.set_color_rgbw(rgbw_dict)
 
         resp = make_response()
         return resp

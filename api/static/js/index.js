@@ -11,9 +11,6 @@ window.onload = function () {
 function getCurrentLEDState() {
   const brightness = get('/get_brightness')
   const color = get('/get_color')
-
-  console.log(brightness);
-  console.log(color)
 }
 
 function setupBrightnessSlider() {
