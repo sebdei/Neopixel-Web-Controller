@@ -6,9 +6,9 @@ INIT_BRIGHTNESS = 0.05
 
 
 class NeopixelAccess:
-    brightness = INIT_BRIGHTNESS
-    hsl = None
-    neo_pixels = None
+    __brightness = INIT_BRIGHTNESS
+    __hsl = None
+    __neo_pixels = None
 
     def __init__(self, gpio_pin=18, number_of_pixels=16, order=None):
         self.neo_pixels = neopixel.NeoPixel(pin=gpio_pin, n=number_of_pixels, brightness=INIT_BRIGHTNESS, auto_write=False, pixel_order=order)
