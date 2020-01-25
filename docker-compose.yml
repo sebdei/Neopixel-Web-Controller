@@ -9,3 +9,4 @@ services:
     volumes:
       - ./:/./src
     privileged: true
+    restart: always

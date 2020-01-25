@@ -15,29 +15,35 @@ def bind_routes(app):
     @app.route('/get_brightness', methods=['GET'])
     def get_brightness():
         brightness = neopixel_service.get_brightness()
-        return jsonify(brightness=brightness)
+        return jsonify(brightness)
 
-    @app.route('/get_color', methods=['GET'])
-    def get_color():
-        r, g, b, w = neopixel_service.get_color()
-        return jsonify(r=r, g=g, b=b, w=w)
+    
+    @app.route('/get_color/hsl', methods=['GET'])
+    def get_color_hsl():
+        hsl = neopixel_service.get_color_hsl()
+
+        return jsonify(**hsl)
 
     @app.route('/set_brightness', methods=['POST'])
     def set_brightness():
-        brightness = request.get_json()
-        neopixel_service.set_brightness(brightness)
+        body = request.get_json()
+        neopixel_service.set_brightness(body)
 
         resp = make_response()
+
         return resp
 
-    @app.route('/set_color_rgbw', methods=['POST'])
+    @app.route('/set_color', methods=['POST'])
     def set_color_rgbw():
-        rgbw_dict = request.get_json()
-        neopixel_service.set_color_rgbw((rgbw_dict['r'], rgbw_dict['g'], rgbw_dict['b'], rgbw_dict['w']))
+        body = request.get_json()
+        rgbw = body['rgbw']
+        hsl = body['hsl']
+
+        neopixel_service.set_color_rgbw(rgbw)
+        neopixel_service.set_color_hsl(hsl)
 
         resp = make_response()
         return resp
-
 
 def setup():
     # for development purpose

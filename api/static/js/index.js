@@ -4,28 +4,26 @@ import hsl2rgbw from './hsl2rgbw.js'
 window.onload = function () {
   setupBrightnessSlider()
   setupColorWheel()
-
-  getCurrentLEDState()
 }
 
-function getCurrentLEDState() {
-  const brightness = get('/get_brightness')
-  const color = get('/get_color')
-}
-
-function setupBrightnessSlider() {
+async function setupBrightnessSlider() {
   const slider = document.getElementById("range-slider");
 
+  const brightness = await get('/get_brightness')
+  slider.value = brightness
+
   slider.addEventListener('input', (event) => {
-    const effectiveBrightness = event.target.value / 100
+    const effectiveBrightness = event.target.valueAsNumber
     setBrightness(effectiveBrightness)
   })
 }
 
-function setupColorWheel() {
+async function setupColorWheel() {
+  const currentHsl = await get('/get_color/hsl')
+
   const colorPicker = new iro.ColorPicker(".color-picker", {
     width: 280,
-    color: { h: 180, s: 90, l: 50 },
+    color: currentHsl,
     borderWidth: 1,
     borderColor: "#fff",
     layout: [
@@ -39,7 +37,7 @@ function setupColorWheel() {
     const hsl = color.hsl
     const rgbw = hsl2rgbw(hsl.h, hsl.s, hsl.l)
   
-    setColor(rgbw)
+    setColor(rgbw, hsl)
   })
 }
 
@@ -47,11 +45,11 @@ function setBrightness(brightness) {
   post('/set_brightness', brightness)
 }
 
-function setColor(rgbw) {
-  post('/set_color_rgbw', rgbw)
+function setColor(rgbw, hsl) {
+  post('/set_color', { rgbw, hsl })
 }
 
-function post(path, data) {
+function post(path, body) {
   const effectivePath = "http://192.168.0.32:5000" + path
   fetch(effectivePath, {
     method: 'POST',
@@ -60,15 +58,18 @@ function post(path, data) {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify(data)
+    body: JSON.stringify(body)
   })
 }
 
-function get(path) {
+async function get(path) {
   const effectivePath = "http://192.168.0.32:5000" + path
-  fetch(effectivePath, {
+  const resp = await fetch(effectivePath, {
     method: 'GET',
     mode: 'cors',
     cache: 'no-cache',
   })
+  const body = await resp.json()
+
+  return body
 }

@@ -1,29 +1,30 @@
 from typing import Tuple
+from typing import Dict
 
 import neopixel
 
 INIT_BRIGHTNESS = 0.05
+INIT_HSL = { 'h': 150, 's': 90, 'l': 50 }
 
-
-class NeopixelAccess:
+class NeopixelContainer:
     __brightness = INIT_BRIGHTNESS
-    __hsl = None
+    __hsl = INIT_HSL
     __neo_pixels = None
 
     def __init__(self, gpio_pin=18, number_of_pixels=16, order=None):
-        self.neo_pixels = neopixel.NeoPixel(pin=gpio_pin, n=number_of_pixels, brightness=INIT_BRIGHTNESS, auto_write=False, pixel_order=order)
+        self.__neo_pixels = neopixel.NeoPixel(pin=gpio_pin, n=number_of_pixels, brightness=INIT_BRIGHTNESS, auto_write=False, pixel_order=order)
 
     def get_brightness(self):
-        return self.brightness
+        return self.__brightness
 
     def get_hsl(self):
-        return self.hsl
+        return self.__hsl
 
     def get_neo_pixel_list(self):
-        return self.neo_pixels
+        return self.__neo_pixels
 
     def set_brightness(self, brightness: float):
-        self.brightness = brightness
+        self.__brightness = brightness
 
-    def set_hsl(self, hsl: Tuple):
-        self.hsl = hsl
+    def set_hsl(self, hsl: Dict):
+        self.__hsl = hsl
