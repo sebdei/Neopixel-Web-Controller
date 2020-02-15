@@ -14,3 +14,7 @@ Calculation of HSL to RGB+W values are done on clientside due to the limited com
 
 
 <img src="https://raw.githubusercontent.com/sebdei/Neopixel-Web-Controller/master/screenshot.png" width="50%">
+
+Wiring
+------------
+I wired the neopixel with a Diode as in the [official adafruit tutorial](https://learn.adafruit.com/neopixels-on-raspberry-pi/raspberry-pi-wiring#raspberry-pi-wiring-with-diode-3-4)
