@@ -1,7 +1,7 @@
 Neopixel-Controller
 ==================
 
-Simple docker-based web controller for [Adafruit's neopixels](https://www.adafruit.com/category/168) made for raspberry pis and similar SOCs.
+Simple docker-based web controller for [Adafruit's neopixels](https://www.adafruit.com/category/168) made for raspberry pis and similar SBCs.
 
 Built with [Adafruit CircuitPython Neopixel](https://github.com/adafruit/Adafruit_CircuitPython_NeoPixel), [flask](https://github.com/pallets/flask) and [iro](https://iro.js.org/).
 
